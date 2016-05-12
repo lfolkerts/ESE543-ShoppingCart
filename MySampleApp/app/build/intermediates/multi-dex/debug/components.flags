@@ -1,0 +1,71 @@
+-injars /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/transforms/jarMerging/debug/jars/1/1f/combined.jar
+-outjars /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/multi-dex/debug/componentClasses.jar
+
+-libraryjars /home/lfolkerts/Android/Sdk/build-tools/23.0.1/lib/shrinkedAndroid.jar
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontwarn
+-printconfiguration /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/multi-dex/debug/components.flags
+
+
+-keep class com.mysampleapp.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep class com.mysampleapp.SplashActivity {
+    <init>();
+}
+
+-keep class com.mysampleapp.SignInActivity {
+    <init>();
+}
+
+-keep class com.mysampleapp.MainActivity {
+    <init>();
+}
+
+-keep class com.amazonaws.mobileconnectors.s3.transferutility.TransferService {
+    <init>();
+}
+
+-keep class com.amazonaws.mobile.downloader.service.DownloadService {
+    <init>();
+}
+
+-keep class com.amazonaws.mobile.downloader.service.NetworkStateListener {
+    <init>();
+}
+
+-keep class com.amazonaws.mobile.downloader.query.DownloadQueueProvider {
+    <init>();
+}
+
+-keep class android.support.v4.content.FileProvider {
+    <init>();
+}
+
+-keep class com.facebook.FacebookActivity {
+    <init>();
+}
+
+-keep class com.mysampleapp.CartListActivity {
+    <init>();
+}
+
+-keep class com.mysampleapp.ShoppingCartActivity {
+    <init>();
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
