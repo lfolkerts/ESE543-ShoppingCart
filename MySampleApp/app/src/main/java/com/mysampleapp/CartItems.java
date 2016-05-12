@@ -3,6 +3,7 @@ package com.mysampleapp;
 
 import java.util.List;
 import java.util.ListIterator;
+import java.util.ArrayList;
 
 public class CartItems
 {
@@ -11,13 +12,14 @@ public class CartItems
     private String name;
     private int quantity;
     protected int rating;
-    protected List<StoreItem> Stores;
+    protected List<StoreItem> Stores = new ArrayList<StoreItem>();
 
     public CartItems(String id, String barcode, String name, int rating)
     {
         this.id = id;
         this.barcode = barcode;
         this.name = name;
+        Stores.clear();
         this.rating = (rating>=ShoppingContent.ITEM_MAX_RATING)?ShoppingContent.ITEM_UNRATED:
                 (rating<ShoppingContent.ITEM_MIN_RATING)?ShoppingContent.ITEM_UNRATED:
                         rating;
@@ -27,7 +29,7 @@ public class CartItems
     {
         ListIterator<StoreItem> List_Item;
         StoreItem StoreItem_From_List;
-        for(List_Item = Stores.listIterator(); List_Item.hasNext(); )
+        for(List_Item = Stores.listIterator(); List_Item!= null && List_Item.hasNext(); )
         {
             StoreItem_From_List = List_Item.next();
             if(StoreItem_From_List.getStore().equals(store)){ return StoreItem_From_List; }
@@ -51,7 +53,8 @@ public class CartItems
         ListIterator<StoreItem> List_Item;
         StoreItem StoreItem_From_List = find_store_item(store);
 
-        if (StoreItem_From_List != null) {
+        if (StoreItem_From_List != null)
+        {
             StoreItem_From_List.setPrice(price);
             return;
 

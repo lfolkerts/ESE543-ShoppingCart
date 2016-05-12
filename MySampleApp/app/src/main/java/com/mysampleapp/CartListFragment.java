@@ -16,7 +16,7 @@ public class CartListFragment extends ListFragment {
     private ArrayList<CartItems> mShoppingCart;
     public static final String TAG = "CartListFragment";
 
-    CartDatabase mDbHelper = new CartDatabase(getContext());
+    //CartDatabase mDbHelper = new CartDatabase(getContext());
     OnDataPass dataPasser;
 
     public interface OnDataPass {

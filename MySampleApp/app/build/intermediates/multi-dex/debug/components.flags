@@ -25,7 +25,7 @@
     <init>();
 }
 
--keep class com.mysampleapp.MainActivity {
+-keep class com.mysampleapp.BackendActivity {
     <init>();
 }
 
