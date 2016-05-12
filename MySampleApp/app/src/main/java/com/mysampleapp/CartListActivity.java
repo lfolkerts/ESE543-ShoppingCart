@@ -4,7 +4,8 @@ import android.app.Fragment;
 import android.content.Intent;
 
 
-public class CartListActivity extends SingleFragmentActivity implements CartListFragment.OnDataPass {
+public class CartListActivity extends SingleFragmentActivity implements CartListFragment.OnDataPass
+{
     public static final String TAG = "CART LIST ACTIVITY";
     CartItems c = new CartItems("KAKA", "1BCDEFGHIJKLM","Kakas", 0);
 

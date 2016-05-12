@@ -40,6 +40,7 @@ public class CartListFragment extends ListFragment {
         mShoppingCart = CartContents.get(getActivity()).getCart();
         ShoppingCartAdapter adapter = new ShoppingCartAdapter(mShoppingCart);
         setListAdapter(adapter);
+
     }
 
     @Override
