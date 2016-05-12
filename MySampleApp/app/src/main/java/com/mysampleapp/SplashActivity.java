@@ -111,8 +111,8 @@ public class SplashActivity extends Activity {
                     signInManager.refreshCredentialsWithProvider(SplashActivity.this,
                         provider, new SignInResultsHandler());
                 } else {
-                    // Asyncronously go to the main activity (after the splash delay has expired).
-                    goMain();
+                    // Asyncronously go to the sign in activity (after the splash delay has expired).
+                    goSignIn();
                 }
 
                 // Wait for the splash timeout.
