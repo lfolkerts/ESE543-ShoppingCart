@@ -156,10 +156,6 @@
         "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/layout/abc_action_bar_title_item.xml"
     },
     {
-        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/layout/landing_fragment.xml",
-        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/src/main/res/layout/landing_fragment.xml"
-    },
-    {
         "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
         "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },

@@ -1,11 +1,14 @@
 package com.mysampleapp;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +21,7 @@ public class CartListFragment extends ListFragment {
 
     //CartDatabase mDbHelper = new CartDatabase(getContext());
     OnDataPass dataPasser;
+    Button mBackendButton;
 
     public interface OnDataPass {
         public void onDataPass(String data);
@@ -40,7 +44,6 @@ public class CartListFragment extends ListFragment {
         mShoppingCart = CartContents.get(getActivity()).getCart();
         ShoppingCartAdapter adapter = new ShoppingCartAdapter(mShoppingCart);
         setListAdapter(adapter);
-
     }
 
     @Override
@@ -71,4 +74,6 @@ public class CartListFragment extends ListFragment {
             return convertView;
         }
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.mysampleapp;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ public class CartFragment extends Fragment{
     private static final String DIALOG_MARKET = "store";
     private Button mQuantityButton;
     private Button mMarketButton;
+    private Button mBackendButton;
     private Button mAddCartItemButton;
     private Button mViewCartButton;
     private Button mDeleteCartItemButton;
@@ -105,7 +107,18 @@ public class CartFragment extends Fragment{
                 Toast.makeText(getActivity(), "DATA DELETED", Toast.LENGTH_LONG).show();
             }
         });
+
+        mBackendButton = (Button)v.findViewById(R.id.settings_button);
+        mBackendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShoppingCartActivity a = (ShoppingCartActivity) getActivity();
+                Intent backendIntent = new Intent(a, BackendActivity.class);
+                a.startActivity(backendIntent);
+            }
+        });
         return v;
+
     }
 
     public void showMessage (String title, String message) {
