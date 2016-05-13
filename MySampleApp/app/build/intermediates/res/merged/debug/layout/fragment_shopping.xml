@@ -81,7 +81,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="View Backend"
         android:id="@+id/settings_button"
         android:layout_gravity="right|bottom" />
 </LinearLayout>

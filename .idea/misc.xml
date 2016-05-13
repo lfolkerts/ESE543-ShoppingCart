@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../../L303/android-place-picker-master" value="5801171808000" />
+        <entry key="$PROJECT_DIR$/../../L305/android-play-places/PlaceCompleteActivity" value="4376017719759" />
+        <entry key="$PROJECT_DIR$/../GrocerySync-Android" value="4388703345593" />
+        <entry key="$PROJECT_DIR$/../S2ampleApp/MySampleApp" value="4388750895000" />
+        <entry key="$PROJECT_DIR$/MySampleApp" value="4388758713000" />
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="true" assert-keyword="true" jdk-15="true" />
+</project>

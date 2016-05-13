@@ -128,6 +128,7 @@ android/support/v4/app/BaseFragmentActivityDonut.class
 com/amazonaws/auth/policy/STSActions.class
 com/amazonaws/mobileconnectors/s3/transfermanager/PauseResult.class
 com/amazonaws/mobile/downloader/service/DownloadService.class
+com/mysampleapp/BackendActivity$4.class
 android/support/v4/media/VolumeProviderCompat$Callback.class
 com/facebook/internal/NativeProtocol.class
 android/support/v4/view/ViewCompat$ICSViewCompatImpl.class
@@ -202,8 +203,8 @@ com/amazonaws/mobileconnectors/s3/transfermanager/model/UploadResult.class
 com/amazonaws/util/AwsHostNameUtils.class
 com/amazonaws/mobileconnectors/cognito/DefaultSyncCallback.class
 com/mysampleapp/SignInActivity$1.class
-android/support/v7/appcompat/R$style.class
 bolts/AggregateException.class
+android/support/v7/appcompat/R$style.class
 android/support/v4/app/FragmentManagerImpl$FragmentTag.class
 android/support/annotation/IdRes.class
 android/support/v4/app/FragmentManagerImpl$5.class
@@ -261,8 +262,8 @@ android/support/v4/view/ViewCompat$GBViewCompatImpl.class
 android/support/v4/app/NotificationCompat$Builder.class
 com/amazonaws/mobileconnectors/dynamodbv2/dynamodbmapper/DynamoDBDocument.class
 com/amazonaws/util/AWSRequestMetrics.class
-android/support/v4/media/session/PlaybackStateCompat$CustomAction.class
 com/amazonaws/mobileconnectors/s3/transfermanager/PersistableDownload.class
+android/support/v4/media/session/PlaybackStateCompat$CustomAction.class
 android/support/v4/view/ScrollingView.class
 com/amazonaws/mobileconnectors/dynamodbv2/dynamodbmapper/DynamoDBHashKey.class
 com/amazonaws/mobileconnectors/s3/transfermanager/exception/package-info.class

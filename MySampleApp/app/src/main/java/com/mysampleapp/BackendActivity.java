@@ -149,6 +149,16 @@ public class BackendActivity extends AppCompatActivity implements View.OnClickLi
         setupToolbar(savedInstanceState);
 
         setupNavigationMenu(savedInstanceState);
+
+        Button backToList = (Button) findViewById(R.id.button);
+        backToList.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v)
+        {
+            Intent back = new Intent(getApplicationContext(), CartListActivity.class);
+            startActivity(back);
+        }
+
+        });
     }
 
     @Override

@@ -27,7 +27,16 @@
             android:id="@+id/main_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="126dp"
+                android:layout_height="85dp"
+                android:text="Back to List"
+                android:id="@+id/button"
+                android:layout_gravity="right|bottom"
+                android:background="#f4930b" />
+        </FrameLayout>
     </LinearLayout>
 
     <!-- navigation drawer -->
