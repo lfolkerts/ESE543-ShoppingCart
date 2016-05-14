@@ -34,6 +34,11 @@ public class ShoppingCartActivity extends SingleFragmentActivity {
         return c.getQuantity();
     }
 
+    public CartItems passItem()
+    {
+        return c;
+    }
+
     public int passItemRating(){
         return c.getRating();
     }

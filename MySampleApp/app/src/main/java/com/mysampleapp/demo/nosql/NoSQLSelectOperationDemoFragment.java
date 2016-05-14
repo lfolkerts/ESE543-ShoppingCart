@@ -31,7 +31,7 @@ public class NoSQLSelectOperationDemoFragment extends DemoFragmentBase implement
     private static final String LOG_TAG = NoSQLSelectOperationDemoFragment.class.getSimpleName();
 
     /** Bundle key for retrieving the table name from the fragment's arguments. */
-    public static final String BUNDLE_ARGS_TABLE_TITLE = "tableTitle";
+    public static final String BUNDLE_ARGS_TABLE_TITLE = "ESE543 TEST";
 
     /** The NoSQL Table demo operations will be run against. */
     private DemoNoSQLTableBase demoTable;

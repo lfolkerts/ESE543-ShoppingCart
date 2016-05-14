@@ -16,12 +16,10 @@ import java.util.Set;
 public class RatedItemsTestDO {
     private String _userId;
     private String _itemId;
-    private String _category;
-    private String _details;
-    private String _name;
-    private double _price;
-    private double _ratingCount;
-    private double _ratingValue;
+    private String _barcode;
+    private byte[] _picture;
+    private Map<String, String> _price;
+    private double _quantity;
 
     @DynamoDBHashKey(attributeName = "userId")
     @DynamoDBAttribute(attributeName = "userId")
@@ -33,7 +31,7 @@ public class RatedItemsTestDO {
         this._userId = _userId;
     }
     @DynamoDBRangeKey(attributeName = "itemId")
-    @DynamoDBAttribute(attributeName = "itemId")
+    @DynamoDBIndexRangeKey(attributeName = "itemId", globalSecondaryIndexName = "Barcode")
     public String getItemId() {
         return _itemId;
     }
@@ -41,53 +39,37 @@ public class RatedItemsTestDO {
     public void setItemId(final String _itemId) {
         this._itemId = _itemId;
     }
-    @DynamoDBIndexHashKey(attributeName = "category", globalSecondaryIndexName = "Ratings")
-    public String getCategory() {
-        return _category;
+    @DynamoDBIndexHashKey(attributeName = "barcode", globalSecondaryIndexName = "Barcode")
+    public String getBarcode() {
+        return _barcode;
     }
 
-    public void setCategory(final String _category) {
-        this._category = _category;
+    public void setBarcode(final String _barcode) {
+        this._barcode = _barcode;
     }
-    @DynamoDBAttribute(attributeName = "details")
-    public String getDetails() {
-        return _details;
-    }
-
-    public void setDetails(final String _details) {
-        this._details = _details;
-    }
-    @DynamoDBAttribute(attributeName = "name")
-    public String getName() {
-        return _name;
+    @DynamoDBAttribute(attributeName = "picture")
+    public byte[] getPicture() {
+        return _picture;
     }
 
-    public void setName(final String _name) {
-        this._name = _name;
+    public void setPicture(final byte[] _picture) {
+        this._picture = _picture;
     }
     @DynamoDBAttribute(attributeName = "price")
-    public double getPrice() {
+    public Map<String, String> getPrice() {
         return _price;
     }
 
-    public void setPrice(final double _price) {
+    public void setPrice(final Map<String, String> _price) {
         this._price = _price;
     }
-    @DynamoDBAttribute(attributeName = "ratingCount")
-    public double getRatingCount() {
-        return _ratingCount;
+    @DynamoDBAttribute(attributeName = "quantity")
+    public double getQuantity() {
+        return _quantity;
     }
 
-    public void setRatingCount(final double _ratingCount) {
-        this._ratingCount = _ratingCount;
-    }
-    @DynamoDBIndexRangeKey(attributeName = "ratingValue", globalSecondaryIndexName = "Ratings")
-    public double getRatingValue() {
-        return _ratingValue;
-    }
-
-    public void setRatingValue(final double _ratingValue) {
-        this._ratingValue = _ratingValue;
+    public void setQuantity(final double _quantity) {
+        this._quantity = _quantity;
     }
 
 }

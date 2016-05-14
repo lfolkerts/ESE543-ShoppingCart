@@ -2,6 +2,7 @@ package com.mysampleapp;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +13,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.mobile.util.ThreadUtils;
+import com.mysampleapp.CartItems;
+import com.mysampleapp.demo.nosql.DemoNoSQLTableBase;
+import com.mysampleapp.demo.nosql.DemoNoSQLTableFactory;
+import com.mysampleapp.demo.nosql.DemoNoSQLTableRatedItemsTest;
+import com.mysampleapp.demo.nosql.DynamoDBUtils;
 
 public class CartFragment extends Fragment{
 
@@ -24,12 +32,15 @@ public class CartFragment extends Fragment{
     private Button mAddCartItemButton;
     private Button mViewCartButton;
     private Button mDeleteCartItemButton;
-    CartDatabase db;
+    /** The NoSQL Table demo operations will be run against. */
+    private DemoNoSQLTableRatedItemsTest demoTable;
     double itemCost;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        demoTable = DemoNoSQLTableFactory.instance(getContext().getApplicationContext())
+                .getNoSQLTableByTableName("ESE543 TEST");
     }
 
     @Override
@@ -57,24 +68,41 @@ public class CartFragment extends Fragment{
         mAddCartItemButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                db = new CartDatabase(getActivity());
                 ShoppingCartActivity a = (ShoppingCartActivity) getActivity();
-                String itemName = a.passData();
-                int itemQuantity = a.passItemQuantity();
-                int itemMarket = a.passItemRating(); //TODO
+                CartItems itemB = null;
+                CartItems itemA = a.passItem();
+                if(itemA == null){ itemB = new CartItems("id", "00000000000000","test",0);}
+                final CartItems item = (itemA==null)?itemB:itemA;
+                item.setQuantity(a.passItemQuantity());
+                item.setPrice("Generic", (float) 3.99);
+                String itemMarket = "Generic";
 
-                //Todo: add cost here
-                itemCost = itemCost+1;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            demoTable.insertData(item.getID(),item.getBarcode(),  item.getBestPrice(), item.getQuantity());
+                        } catch (final AmazonClientException ex) {
+                            // The insertSampleData call already logs the error, so we only need to
+                            // show the error dialog to the user at this point.
+                          return;
+                        }
+                        ThreadUtils.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+                                dialogBuilder.setTitle(R.string.nosql_dialog_title_added_sample_data_text);
+                                dialogBuilder.setMessage(R.string.nosql_dialog_message_added_sample_data_text);
+                                dialogBuilder.setNegativeButton(R.string.nosql_dialog_ok_text, null);
+                                dialogBuilder.show();
+                                     }
+                        });
+                    }
+                }).start();
 
+                Toast.makeText(getActivity(), "ITEMS INSERTED", Toast.LENGTH_LONG).show();
 
-                boolean isInserted = db.insertCartItem(itemName, itemQuantity,
-                        itemMarket, itemCost);
-                if (isInserted = true) {
-                    Toast.makeText(getActivity(), "ITEMS INSERTED", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getActivity(), "ITEMS NOT INSERTED", Toast.LENGTH_LONG).show();
-                }
-                db.deleteDuplicates();
+                //TODO delete duplicates LARS
             }
         });
 
@@ -82,20 +110,8 @@ public class CartFragment extends Fragment{
         mViewCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor result = db.getAllData();
-                if (result.getCount() == 0) {
-                    showMessage("Error", "No Data Found");
-                    return;
-                }
-                StringBuffer buffer = new StringBuffer();
-                while (result.moveToNext()) {
-                    buffer.append("Id " + result.getString(0) + "\n");
-                    buffer.append("Item name " + result.getString(1) + "\n");
-                    buffer.append("Quantity " + result.getString(2) + "\n");
-                    buffer.append("Priority " + result.getString(3) + "\n");
-                    buffer.append("Cost " + result.getString(4) + "\n\n");
-                }
-                showMessage("Data", buffer.toString());
+               //TODO show cart here
+                showMessage("Data", "Items");
             }
         });
 
@@ -103,7 +119,7 @@ public class CartFragment extends Fragment{
         mDeleteCartItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.deleteData();
+                demoTable.removeSampleData();
                 Toast.makeText(getActivity(), "DATA DELETED", Toast.LENGTH_LONG).show();
             }
         });

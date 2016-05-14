@@ -31,14 +31,14 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
     private static final String LOG_TAG = DemoNoSQLTableRatedItemsTest.class.getSimpleName();
 
     /** Condition demo key for Primary Queries with filter conditions. */
-    private static final String DEMO_PRIMARY_CONDITION_KEY = "details";
+    private static final String DEMO_PRIMARY_CONDITION_KEY = "quantity";
     /** Condition demo value for Queries with filter conditions. */
-    private static final String DEMO_PRIMARY_CONDITION_VALUE = "demo-" + DEMO_PRIMARY_CONDITION_KEY + "-500000";
+    private static final String DEMO_PRIMARY_CONDITION_VALUE = "1111500000";
 
     /** Condition demo key for Secondary Queries with filter conditions. */
-    private static final String DEMO_SECONDARY_CONDITION_KEY = "itemId";
+    private static final String DEMO_SECONDARY_CONDITION_KEY = "quantity";
     /** Condition demo value for Queries with filter conditions. */
-    private static final String DEMO_SECONDARY_CONDITION_VALUE = "demo-" + DEMO_SECONDARY_CONDITION_KEY + "-500000";
+    private static final String DEMO_SECONDARY_CONDITION_VALUE = "1111500000";
 
     private static final String DEMO_PARTITION_KEY = "userId";
     /** Partition/Hash demo value for Get and Queries. */
@@ -211,15 +211,15 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
             // Use an expression names Map to avoid the potential for attribute names
             // colliding with DynamoDB reserved words.
             final Map <String, String> filterExpressionAttributeNames = new HashMap<>();
-            filterExpressionAttributeNames.put("#details", DEMO_PRIMARY_CONDITION_KEY);
+            filterExpressionAttributeNames.put("#quantity", DEMO_PRIMARY_CONDITION_KEY);
 
             final Map<String, AttributeValue> filterExpressionAttributeValues = new HashMap<>();
-            filterExpressionAttributeValues.put(":Mindetails",
-                new AttributeValue().withS(DEMO_PRIMARY_CONDITION_VALUE));
+            filterExpressionAttributeValues.put(":Minquantity",
+                new AttributeValue().withN(DEMO_PRIMARY_CONDITION_VALUE));
 
             final DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
                 .withHashKeyValues(itemToFind)
-                .withFilterExpression("#details > :Mindetails")
+                .withFilterExpression("#quantity > :Minquantity")
                 .withExpressionAttributeNames(filterExpressionAttributeNames)
                 .withExpressionAttributeValues(filterExpressionAttributeValues)
                 .withConsistentRead(false)
@@ -270,16 +270,16 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
             // Use an expression names Map to avoid the potential for attribute names
             // colliding with DynamoDB reserved words.
             final Map <String, String> filterExpressionAttributeNames = new HashMap<>();
-            filterExpressionAttributeNames.put("#details", DEMO_PRIMARY_CONDITION_KEY);
+            filterExpressionAttributeNames.put("#quantity", DEMO_PRIMARY_CONDITION_KEY);
 
             final Map<String, AttributeValue> filterExpressionAttributeValues = new HashMap<>();
-            filterExpressionAttributeValues.put(":Mindetails",
-                new AttributeValue().withS(DEMO_PRIMARY_CONDITION_VALUE));
+            filterExpressionAttributeValues.put(":Minquantity",
+                new AttributeValue().withN(DEMO_PRIMARY_CONDITION_VALUE));
 
             final DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
                 .withHashKeyValues(itemToFind)
                 .withRangeKeyCondition(DEMO_SORT_KEY, rangeKeyCondition)
-                .withFilterExpression("#details > :Mindetails")
+                .withFilterExpression("#quantity > :Minquantity")
                 .withExpressionAttributeNames(filterExpressionAttributeNames)
                 .withExpressionAttributeValues(filterExpressionAttributeValues)
                 .withConsistentRead(false)
@@ -308,46 +308,46 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
 
     /* ******** Secondary Named Index Query Inner Classes ******** */
 
-    private static final String DEMO_RATINGS_PARTITION_KEY = "category";
-    private static final String DEMO_RATINGS_PARTITION_VALUE = "demo-category-3";
-    private static final String DEMO_RATINGS_PARTITION_VALUE_TEXT = DEMO_RATINGS_PARTITION_VALUE;
+    private static final String DEMO_BARCODE_PARTITION_KEY = "barcode";
+    private static final String DEMO_BARCODE_PARTITION_VALUE = "demo-barcode-3";
+    private static final String DEMO_BARCODE_PARTITION_VALUE_TEXT = DEMO_BARCODE_PARTITION_VALUE;
 
-    private String getDemoRatingsPartitionValue() {
-        return DEMO_RATINGS_PARTITION_VALUE;
+    private String getDemoBarcodePartitionValue() {
+        return DEMO_BARCODE_PARTITION_VALUE;
     }
 
-    private String getDemoRatingsPartitionValueText() {
-        return DEMO_RATINGS_PARTITION_VALUE_TEXT;
+    private String getDemoBarcodePartitionValueText() {
+        return DEMO_BARCODE_PARTITION_VALUE_TEXT;
     }
 
-    private static final String DEMO_RATINGS_SORT_KEY = "ratingValue";
-    private static final Double DEMO_RATINGS_SORT_VALUE = 1111500000.0;
-    private static final String DEMO_RATINGS_SORT_VALUE_TEXT = "1111500000";
+    private static final String DEMO_BARCODE_SORT_KEY = "itemId";
+    private static final String DEMO_BARCODE_SORT_VALUE = "demo-itemId-500000";
+    private static final String DEMO_BARCODE_SORT_VALUE_TEXT = DEMO_BARCODE_SORT_VALUE;
 
-    public class DemoRatingsQueryWithPartitionKeyAndSortKeyCondition extends DemoNoSQLOperationBase {
+    public class DemoBarcodeQueryWithPartitionKeyAndSortKeyCondition extends DemoNoSQLOperationBase {
 
         private PaginatedQueryList<RatedItemsTestDO> results;
         private Iterator<RatedItemsTestDO> resultsIterator;
-        DemoRatingsQueryWithPartitionKeyAndSortKeyCondition (final Context context) {
+        DemoBarcodeQueryWithPartitionKeyAndSortKeyCondition (final Context context) {
             super(
                 context.getString(R.string.nosql_operation_title_index_query_by_partition_and_sort_condition_text),
                 context.getString(R.string.nosql_operation_example_index_query_by_partition_and_sort_condition_text,
-                    DEMO_RATINGS_PARTITION_KEY, getDemoRatingsPartitionValueText(),
-                    DEMO_RATINGS_SORT_KEY, DEMO_RATINGS_SORT_VALUE_TEXT));
+                    DEMO_BARCODE_PARTITION_KEY, getDemoBarcodePartitionValueText(),
+                    DEMO_BARCODE_SORT_KEY, DEMO_BARCODE_SORT_VALUE_TEXT));
         }
 
         public boolean executeOperation() {
             // Perform a query using a partition key and sort key condition.
             final RatedItemsTestDO itemToFind = new RatedItemsTestDO();
-            itemToFind.setCategory(getDemoRatingsPartitionValue());
+            itemToFind.setBarcode(getDemoBarcodePartitionValue());
             final Condition sortKeyCondition = new Condition()
                 .withComparisonOperator(ComparisonOperator.LT.toString())
 
-                .withAttributeValueList(new AttributeValue().withN(DEMO_RATINGS_SORT_VALUE.toString()));
+                .withAttributeValueList(new AttributeValue().withS(DEMO_BARCODE_SORT_VALUE));
             // Perform get using Partition key and sort key condition
             DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
                 .withHashKeyValues(itemToFind)
-                .withRangeKeyCondition("ratingValue", sortKeyCondition)
+                .withRangeKeyCondition("itemId", sortKeyCondition)
                 .withConsistentRead(false);
             results = mapper.query(RatedItemsTestDO.class, queryExpression);
             if (results != null) {
@@ -370,22 +370,22 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
         }
     }
 
-    public class DemoRatingsQueryWithPartitionKeyOnly extends DemoNoSQLOperationBase {
+    public class DemoBarcodeQueryWithPartitionKeyOnly extends DemoNoSQLOperationBase {
 
         private PaginatedQueryList<RatedItemsTestDO> results;
         private Iterator<RatedItemsTestDO> resultsIterator;
 
-        DemoRatingsQueryWithPartitionKeyOnly(final Context context) {
+        DemoBarcodeQueryWithPartitionKeyOnly(final Context context) {
             super(
                 context.getString(R.string.nosql_operation_title_index_query_by_partition_text),
                 context.getString(R.string.nosql_operation_example_index_query_by_partition_text,
-                    DEMO_RATINGS_PARTITION_KEY, getDemoRatingsPartitionValueText()));
+                    DEMO_BARCODE_PARTITION_KEY, getDemoBarcodePartitionValueText()));
         }
 
         public boolean executeOperation() {
             // Perform a query using a partition key and filter condition.
             final RatedItemsTestDO itemToFind = new RatedItemsTestDO();
-            itemToFind.setCategory(getDemoRatingsPartitionValue());
+            itemToFind.setBarcode(getDemoBarcodePartitionValue());
 
             // Perform get using Partition key
             DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
@@ -412,37 +412,37 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
         }
     }
 
-    public class DemoRatingsQueryWithPartitionKeyAndFilterCondition extends DemoNoSQLOperationBase {
+    public class DemoBarcodeQueryWithPartitionKeyAndFilterCondition extends DemoNoSQLOperationBase {
 
         private PaginatedQueryList<RatedItemsTestDO> results;
         private Iterator<RatedItemsTestDO> resultsIterator;
 
-        DemoRatingsQueryWithPartitionKeyAndFilterCondition (final Context context) {
+        DemoBarcodeQueryWithPartitionKeyAndFilterCondition (final Context context) {
             super(
                 context.getString(R.string.nosql_operation_title_index_query_by_partition_and_filter_text),
                 context.getString(R.string.nosql_operation_example_index_query_by_partition_and_filter_text,
-                    DEMO_RATINGS_PARTITION_KEY, getDemoRatingsPartitionValueText(),
+                    DEMO_BARCODE_PARTITION_KEY, getDemoBarcodePartitionValueText(),
                     DEMO_SECONDARY_CONDITION_KEY, DEMO_SECONDARY_CONDITION_VALUE));
         }
 
         public boolean executeOperation() {
             // Perform a query using a partition key and filter condition.
             final RatedItemsTestDO itemToFind = new RatedItemsTestDO();
-            itemToFind.setCategory(getDemoRatingsPartitionValue());
+            itemToFind.setBarcode(getDemoBarcodePartitionValue());
 
             // Use an expression names Map to avoid the potential for attribute names
             // colliding with DynamoDB reserved words.
             final Map <String, String> filterExpressionAttributeNames = new HashMap<>();
-            filterExpressionAttributeNames.put("#itemId", DEMO_SECONDARY_CONDITION_KEY);
+            filterExpressionAttributeNames.put("#quantity", DEMO_SECONDARY_CONDITION_KEY);
 
             final Map<String, AttributeValue> filterExpressionAttributeValues = new HashMap<>();
-            filterExpressionAttributeValues.put(":MinitemId",
-                new AttributeValue().withS(DEMO_SECONDARY_CONDITION_VALUE));
+            filterExpressionAttributeValues.put(":Minquantity",
+                new AttributeValue().withN(DEMO_SECONDARY_CONDITION_VALUE));
 
             // Perform get using Partition key and sort key condition
             DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
                 .withHashKeyValues(itemToFind)
-                .withFilterExpression("#itemId > :MinitemId")
+                .withFilterExpression("#quantity > :Minquantity")
                 .withExpressionAttributeNames(filterExpressionAttributeNames)
                 .withExpressionAttributeValues(filterExpressionAttributeValues)
                 .withConsistentRead(false);
@@ -467,43 +467,43 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
         }
     }
 
-    public class DemoRatingsQueryWithPartitionKeySortKeyAndFilterCondition extends DemoNoSQLOperationBase {
+    public class DemoBarcodeQueryWithPartitionKeySortKeyAndFilterCondition extends DemoNoSQLOperationBase {
 
         private PaginatedQueryList<RatedItemsTestDO> results;
         private Iterator<RatedItemsTestDO> resultsIterator;
 
-        DemoRatingsQueryWithPartitionKeySortKeyAndFilterCondition (final Context context) {
+        DemoBarcodeQueryWithPartitionKeySortKeyAndFilterCondition (final Context context) {
             super(
                 context.getString(R.string.nosql_operation_title_index_query_by_partition_sort_condition_and_filter_text),
                 context.getString(R.string.nosql_operation_example_index_query_by_partition_sort_condition_and_filter_text,
 
-                    DEMO_RATINGS_PARTITION_KEY, getDemoRatingsPartitionValueText(),
-                    DEMO_RATINGS_SORT_KEY, DEMO_RATINGS_SORT_VALUE,
+                    DEMO_BARCODE_PARTITION_KEY, getDemoBarcodePartitionValueText(),
+                    DEMO_BARCODE_SORT_KEY, DEMO_BARCODE_SORT_VALUE,
                     DEMO_SECONDARY_CONDITION_KEY, DEMO_SECONDARY_CONDITION_VALUE));
         }
 
         public boolean executeOperation() {
             // Perform a query using a partition key, sort condition, and filter.
             final RatedItemsTestDO itemToFind = new RatedItemsTestDO();
-            itemToFind.setCategory(getDemoRatingsPartitionValue());
+            itemToFind.setBarcode(getDemoBarcodePartitionValue());
             final Condition sortKeyCondition = new Condition()
                 .withComparisonOperator(ComparisonOperator.LT.toString())
 
-                .withAttributeValueList(new AttributeValue().withN(DEMO_RATINGS_SORT_VALUE.toString()));
+                .withAttributeValueList(new AttributeValue().withS(DEMO_BARCODE_SORT_VALUE));
             // Use a map of expression names to avoid the potential for attribute names
             // colliding with DynamoDB reserved words.
             final Map<String, String> filterExpressionAttributeNames = new HashMap<>();
-            filterExpressionAttributeNames.put("#itemId", DEMO_SECONDARY_CONDITION_KEY);
+            filterExpressionAttributeNames.put("#quantity", DEMO_SECONDARY_CONDITION_KEY);
 
             final Map<String, AttributeValue> filterExpressionAttributeValues = new HashMap<>();
-            filterExpressionAttributeValues.put(":MinitemId",
-                new AttributeValue().withS(DEMO_SECONDARY_CONDITION_VALUE));
+            filterExpressionAttributeValues.put(":Minquantity",
+                new AttributeValue().withN(DEMO_SECONDARY_CONDITION_VALUE));
 
             // Perform get using Partition key and sort key condition
             DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
                 .withHashKeyValues(itemToFind)
-                .withRangeKeyCondition("ratingValue", sortKeyCondition)
-                .withFilterExpression("#itemId > :MinitemId")
+                .withRangeKeyCondition("itemId", sortKeyCondition)
+                .withFilterExpression("#quantity > :Minquantity")
                 .withExpressionAttributeNames(filterExpressionAttributeNames)
                 .withExpressionAttributeValues(filterExpressionAttributeValues)
                 .withConsistentRead(false);
@@ -546,13 +546,13 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
             // Use an expression names Map to avoid the potential for attribute names
             // colliding with DynamoDB reserved words.
             final Map <String, String> filterExpressionAttributeNames = new HashMap<>();
-            filterExpressionAttributeNames.put("#details", DEMO_PRIMARY_CONDITION_KEY);
+            filterExpressionAttributeNames.put("#quantity", DEMO_PRIMARY_CONDITION_KEY);
 
             final Map<String, AttributeValue> filterExpressionAttributeValues = new HashMap<>();
-            filterExpressionAttributeValues.put(":Mindetails",
-                new AttributeValue().withS(DEMO_PRIMARY_CONDITION_VALUE));
+            filterExpressionAttributeValues.put(":Minquantity",
+                new AttributeValue().withN(DEMO_PRIMARY_CONDITION_VALUE));
             final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("#details > :Mindetails")
+                .withFilterExpression("#quantity > :Minquantity")
                 .withExpressionAttributeNames(filterExpressionAttributeNames)
                 .withExpressionAttributeValues(filterExpressionAttributeValues);
 
@@ -702,14 +702,10 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
 
         firstItem.setUserId(getDemoPartitionValue());
         firstItem.setItemId(DEMO_SORT_VALUE);
-        firstItem.setCategory(DemoSampleDataGenerator.getRandomPartitionSampleString("category"));
-        firstItem.setDetails(
-            DemoSampleDataGenerator.getRandomSampleString("details"));
-        firstItem.setName(
-            DemoSampleDataGenerator.getRandomSampleString("name"));
-        firstItem.setPrice(DemoSampleDataGenerator.getRandomSampleNumber());
-        firstItem.setRatingCount(DemoSampleDataGenerator.getRandomSampleNumber());
-        firstItem.setRatingValue(DemoSampleDataGenerator.getRandomSampleNumber());
+        firstItem.setBarcode(DemoSampleDataGenerator.getRandomPartitionSampleString("barcode"));
+        firstItem.setPicture(DemoSampleDataGenerator.getRandomSampleBinary());
+        firstItem.setPrice(DemoSampleDataGenerator.getSampleMap());
+        firstItem.setQuantity(DemoSampleDataGenerator.getRandomSampleNumber());
         AmazonClientException lastException = null;
 
         try {
@@ -724,12 +720,10 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
             final RatedItemsTestDO item = new RatedItemsTestDO();
             item.setUserId(cognitoIdentityId);
             item.setItemId(DemoSampleDataGenerator.getRandomSampleString("itemId"));
-            item.setCategory(DemoSampleDataGenerator.getRandomPartitionSampleString("category"));
-            item.setDetails(DemoSampleDataGenerator.getRandomSampleString("details"));
-            item.setName(DemoSampleDataGenerator.getRandomSampleString("name"));
-            item.setPrice(DemoSampleDataGenerator.getRandomSampleNumber());
-            item.setRatingCount(DemoSampleDataGenerator.getRandomSampleNumber());
-            item.setRatingValue(DemoSampleDataGenerator.getRandomSampleNumber());
+            item.setBarcode(DemoSampleDataGenerator.getRandomPartitionSampleString("barcode"));
+            item.setPicture(DemoSampleDataGenerator.getRandomSampleBinary());
+            item.setPrice(DemoSampleDataGenerator.getSampleMap());
+            item.setQuantity(DemoSampleDataGenerator.getRandomSampleNumber());
 
             items[count] = item;
         }
@@ -745,6 +739,35 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
             throw lastException;
         }
     }
+
+    public void insertData(String id, String barcode, float price, int quantity) throws AmazonClientException
+    {
+        Log.d(LOG_TAG, "Inserting Sample data.");
+        final RatedItemsTestDO firstItem = new RatedItemsTestDO();
+        Map<String, String> priceMap = new HashMap<String, String>();
+        priceMap.put("Generic", Float.toString(price));
+
+        firstItem.setUserId(getDemoPartitionValue());
+        firstItem.setItemId(id);
+        firstItem.setBarcode(barcode);
+        firstItem.setPicture(DemoSampleDataGenerator.getRandomSampleBinary());
+        firstItem.setPrice(priceMap);
+        firstItem.setQuantity(quantity);
+        AmazonClientException lastException = null;
+
+        try {
+            mapper.save(firstItem);
+        } catch (final AmazonClientException ex) {
+            Log.e(LOG_TAG, "Failed saving item : " + ex.getMessage(), ex);
+            lastException = ex;
+        }
+
+        if (lastException != null) {
+            // Re-throw the last exception encountered to alert the user.
+            throw lastException;
+        }
+    }
+
 
     @Override
     public void removeSampleData() throws AmazonClientException {
@@ -800,6 +823,115 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
         }
     }
 
+    public void removeBarcodeItem(String barcode) throws AmazonClientException {
+        final RatedItemsTestDO itemToFind = new RatedItemsTestDO();
+        itemToFind.setUserId(getDemoPartitionValue());
+        itemToFind.setBarcode(barcode);
+
+        final DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
+                .withHashKeyValues(itemToFind)
+                .withConsistentRead(false)
+                .withLimit(MAX_BATCH_SIZE_FOR_DELETE);
+
+        final PaginatedQueryList<RatedItemsTestDO> results = mapper.query(RatedItemsTestDO.class, queryExpression);
+
+        Iterator<RatedItemsTestDO> resultsIterator = results.iterator();
+
+        AmazonClientException lastException = null;
+
+        if (resultsIterator.hasNext()) {
+            final RatedItemsTestDO item = resultsIterator.next();
+
+            // Demonstrate deleting a single item.
+            try {
+                mapper.delete(item);
+            } catch (final AmazonClientException ex) {
+                Log.e(LOG_TAG, "Failed deleting item : " + ex.getMessage(), ex);
+                lastException = ex;
+            }
+        }
+
+        final List<RatedItemsTestDO> batchOfItems = new LinkedList<RatedItemsTestDO>();
+        while (resultsIterator.hasNext()) {
+            // Build a batch of books to delete.
+            for (int index = 0; index < MAX_BATCH_SIZE_FOR_DELETE && resultsIterator.hasNext(); index++) {
+                batchOfItems.add(resultsIterator.next());
+            }
+            try {
+                // Delete a batch of items.
+                mapper.batchDelete(batchOfItems);
+            } catch (final AmazonClientException ex) {
+                Log.e(LOG_TAG, "Failed deleting item batch : " + ex.getMessage(), ex);
+                lastException = ex;
+            }
+
+            // clear the list for re-use.
+            batchOfItems.clear();
+        }
+
+
+        if (lastException != null) {
+            // Re-throw the last exception encountered to alert the user.
+            // The logs contain all the exceptions that occurred during attempted delete.
+            throw lastException;
+        }
+    }
+
+    public void removeZeroQuantityItems() throws AmazonClientException {
+        final RatedItemsTestDO itemToFind = new RatedItemsTestDO();
+        itemToFind.setUserId(getDemoPartitionValue());
+        itemToFind.setQuantity(0);
+
+        final DynamoDBQueryExpression<RatedItemsTestDO> queryExpression = new DynamoDBQueryExpression<RatedItemsTestDO>()
+                .withHashKeyValues(itemToFind)
+                .withConsistentRead(false)
+                .withLimit(MAX_BATCH_SIZE_FOR_DELETE);
+
+        final PaginatedQueryList<RatedItemsTestDO> results = mapper.query(RatedItemsTestDO.class, queryExpression);
+
+        Iterator<RatedItemsTestDO> resultsIterator = results.iterator();
+
+        AmazonClientException lastException = null;
+
+        if (resultsIterator.hasNext()) {
+            final RatedItemsTestDO item = resultsIterator.next();
+
+            // Demonstrate deleting a single item.
+            try {
+                mapper.delete(item);
+            } catch (final AmazonClientException ex) {
+                Log.e(LOG_TAG, "Failed deleting item : " + ex.getMessage(), ex);
+                lastException = ex;
+            }
+        }
+
+        final List<RatedItemsTestDO> batchOfItems = new LinkedList<RatedItemsTestDO>();
+        while (resultsIterator.hasNext()) {
+            // Build a batch of books to delete.
+            for (int index = 0; index < MAX_BATCH_SIZE_FOR_DELETE && resultsIterator.hasNext(); index++) {
+                batchOfItems.add(resultsIterator.next());
+            }
+            try {
+                // Delete a batch of items.
+                mapper.batchDelete(batchOfItems);
+            } catch (final AmazonClientException ex) {
+                Log.e(LOG_TAG, "Failed deleting item batch : " + ex.getMessage(), ex);
+                lastException = ex;
+            }
+
+            // clear the list for re-use.
+            batchOfItems.clear();
+        }
+
+
+        if (lastException != null) {
+            // Re-throw the last exception encountered to alert the user.
+            // The logs contain all the exceptions that occurred during attempted delete.
+            throw lastException;
+        }
+    }
+
+
     private List<DemoNoSQLOperationListItem> getSupportedDemoOperations(final Context context) {
         List<DemoNoSQLOperationListItem> noSQLOperationsList = new ArrayList<DemoNoSQLOperationListItem>();
         noSQLOperationsList.add(new DemoNoSQLOperationListHeader(
@@ -814,12 +946,12 @@ public class DemoNoSQLTableRatedItemsTest extends DemoNoSQLTableBase {
         noSQLOperationsList.add(new DemoQueryWithPartitionKeySortKeyConditionAndFilter(context));
 
         noSQLOperationsList.add(new DemoNoSQLOperationListHeader(
-            context.getString(R.string.nosql_operation_header_secondary_queries, "Ratings")));
+            context.getString(R.string.nosql_operation_header_secondary_queries, "Barcode")));
 
-        noSQLOperationsList.add(new DemoRatingsQueryWithPartitionKeyOnly(context));
-        noSQLOperationsList.add(new DemoRatingsQueryWithPartitionKeyAndFilterCondition(context));
-        noSQLOperationsList.add(new DemoRatingsQueryWithPartitionKeyAndSortKeyCondition(context));
-        noSQLOperationsList.add(new DemoRatingsQueryWithPartitionKeySortKeyAndFilterCondition(context));
+        noSQLOperationsList.add(new DemoBarcodeQueryWithPartitionKeyOnly(context));
+        noSQLOperationsList.add(new DemoBarcodeQueryWithPartitionKeyAndFilterCondition(context));
+        noSQLOperationsList.add(new DemoBarcodeQueryWithPartitionKeyAndSortKeyCondition(context));
+        noSQLOperationsList.add(new DemoBarcodeQueryWithPartitionKeySortKeyAndFilterCondition(context));
         noSQLOperationsList.add(new DemoNoSQLOperationListHeader(
             context.getString(R.string.nosql_operation_header_scan)));
         noSQLOperationsList.add(new DemoScanWithoutFilter(context));

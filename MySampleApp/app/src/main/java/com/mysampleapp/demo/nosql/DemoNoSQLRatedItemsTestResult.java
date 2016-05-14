@@ -25,13 +25,13 @@ public class DemoNoSQLRatedItemsTestResult implements DemoNoSQLResult {
     @Override
     public void updateItem() {
         final DynamoDBMapper mapper = AWSMobileClient.defaultMobileClient().getDynamoDBMapper();
-        final String originalValue = result.getCategory();
-        result.setCategory(DemoSampleDataGenerator.getRandomSampleString("category"));
+        final String originalValue = result.getBarcode();
+        result.setBarcode(DemoSampleDataGenerator.getRandomSampleString("barcode"));
         try {
             mapper.save(result);
         } catch (final AmazonClientException ex) {
             // Restore original data if save fails, and re-throw.
-            result.setCategory(originalValue);
+            result.setBarcode(originalValue);
             throw ex;
         }
     }
@@ -98,18 +98,14 @@ public class DemoNoSQLRatedItemsTestResult implements DemoNoSQLResult {
         final TextView userIdValueTextView;
         final TextView itemIdKeyTextView;
         final TextView itemIdValueTextView;
-        final TextView categoryKeyTextView;
-        final TextView categoryValueTextView;
-        final TextView detailsKeyTextView;
-        final TextView detailsValueTextView;
-        final TextView nameKeyTextView;
-        final TextView nameValueTextView;
+        final TextView barcodeKeyTextView;
+        final TextView barcodeValueTextView;
+        final TextView pictureKeyTextView;
+        final TextView pictureValueTextView;
         final TextView priceKeyTextView;
         final TextView priceValueTextView;
-        final TextView ratingCountKeyTextView;
-        final TextView ratingCountValueTextView;
-        final TextView ratingValueKeyTextView;
-        final TextView ratingValueValueTextView;
+        final TextView quantityKeyTextView;
+        final TextView quantityValueTextView;
         if (convertView == null) {
             layout = new LinearLayout(context);
             layout.setOrientation(LinearLayout.VERTICAL);
@@ -130,23 +126,18 @@ public class DemoNoSQLRatedItemsTestResult implements DemoNoSQLResult {
             layout.addView(itemIdKeyTextView);
             layout.addView(itemIdValueTextView);
 
-            categoryKeyTextView = new TextView(context);
-            categoryValueTextView = new TextView(context);
-            setKeyAndValueTextViewStyles(categoryKeyTextView, categoryValueTextView);
-            layout.addView(categoryKeyTextView);
-            layout.addView(categoryValueTextView);
+            barcodeKeyTextView = new TextView(context);
+            barcodeValueTextView = new TextView(context);
+            setKeyAndValueTextViewStyles(barcodeKeyTextView, barcodeValueTextView);
+            layout.addView(barcodeKeyTextView);
+            layout.addView(barcodeValueTextView);
 
-            detailsKeyTextView = new TextView(context);
-            detailsValueTextView = new TextView(context);
-            setKeyAndValueTextViewStyles(detailsKeyTextView, detailsValueTextView);
-            layout.addView(detailsKeyTextView);
-            layout.addView(detailsValueTextView);
-
-            nameKeyTextView = new TextView(context);
-            nameValueTextView = new TextView(context);
-            setKeyAndValueTextViewStyles(nameKeyTextView, nameValueTextView);
-            layout.addView(nameKeyTextView);
-            layout.addView(nameValueTextView);
+            pictureKeyTextView = new TextView(context);
+            pictureValueTextView = new TextView(context);
+            setKeyAndValueTextViewStyles(pictureKeyTextView, pictureValueTextView);
+            pictureValueTextView.setTypeface(Typeface.MONOSPACE);
+            layout.addView(pictureKeyTextView);
+            layout.addView(pictureValueTextView);
 
             priceKeyTextView = new TextView(context);
             priceValueTextView = new TextView(context);
@@ -154,17 +145,11 @@ public class DemoNoSQLRatedItemsTestResult implements DemoNoSQLResult {
             layout.addView(priceKeyTextView);
             layout.addView(priceValueTextView);
 
-            ratingCountKeyTextView = new TextView(context);
-            ratingCountValueTextView = new TextView(context);
-            setKeyAndValueTextViewStyles(ratingCountKeyTextView, ratingCountValueTextView);
-            layout.addView(ratingCountKeyTextView);
-            layout.addView(ratingCountValueTextView);
-
-            ratingValueKeyTextView = new TextView(context);
-            ratingValueValueTextView = new TextView(context);
-            setKeyAndValueTextViewStyles(ratingValueKeyTextView, ratingValueValueTextView);
-            layout.addView(ratingValueKeyTextView);
-            layout.addView(ratingValueValueTextView);
+            quantityKeyTextView = new TextView(context);
+            quantityValueTextView = new TextView(context);
+            setKeyAndValueTextViewStyles(quantityKeyTextView, quantityValueTextView);
+            layout.addView(quantityKeyTextView);
+            layout.addView(quantityValueTextView);
         } else {
             layout = (LinearLayout) convertView;
             resultNumberTextView = (TextView) layout.getChildAt(0);
@@ -175,23 +160,17 @@ public class DemoNoSQLRatedItemsTestResult implements DemoNoSQLResult {
             itemIdKeyTextView = (TextView) layout.getChildAt(3);
             itemIdValueTextView = (TextView) layout.getChildAt(4);
 
-            categoryKeyTextView = (TextView) layout.getChildAt(5);
-            categoryValueTextView = (TextView) layout.getChildAt(6);
+            barcodeKeyTextView = (TextView) layout.getChildAt(5);
+            barcodeValueTextView = (TextView) layout.getChildAt(6);
 
-            detailsKeyTextView = (TextView) layout.getChildAt(7);
-            detailsValueTextView = (TextView) layout.getChildAt(8);
+            pictureKeyTextView = (TextView) layout.getChildAt(7);
+            pictureValueTextView = (TextView) layout.getChildAt(8);
 
-            nameKeyTextView = (TextView) layout.getChildAt(9);
-            nameValueTextView = (TextView) layout.getChildAt(10);
+            priceKeyTextView = (TextView) layout.getChildAt(9);
+            priceValueTextView = (TextView) layout.getChildAt(10);
 
-            priceKeyTextView = (TextView) layout.getChildAt(11);
-            priceValueTextView = (TextView) layout.getChildAt(12);
-
-            ratingCountKeyTextView = (TextView) layout.getChildAt(13);
-            ratingCountValueTextView = (TextView) layout.getChildAt(14);
-
-            ratingValueKeyTextView = (TextView) layout.getChildAt(15);
-            ratingValueValueTextView = (TextView) layout.getChildAt(16);
+            quantityKeyTextView = (TextView) layout.getChildAt(11);
+            quantityValueTextView = (TextView) layout.getChildAt(12);
         }
 
         resultNumberTextView.setText(String.format("#%d", + position+1));
@@ -199,18 +178,14 @@ public class DemoNoSQLRatedItemsTestResult implements DemoNoSQLResult {
         userIdValueTextView.setText(result.getUserId());
         itemIdKeyTextView.setText("itemId");
         itemIdValueTextView.setText(result.getItemId());
-        categoryKeyTextView.setText("category");
-        categoryValueTextView.setText(result.getCategory());
-        detailsKeyTextView.setText("details");
-        detailsValueTextView.setText(result.getDetails());
-        nameKeyTextView.setText("name");
-        nameValueTextView.setText(result.getName());
+        barcodeKeyTextView.setText("barcode");
+        barcodeValueTextView.setText(result.getBarcode());
+        pictureKeyTextView.setText("picture");
+        pictureValueTextView.setText(bytesToHexString(result.getPicture()));
         priceKeyTextView.setText("price");
-        priceValueTextView.setText("" + (long) result.getPrice());
-        ratingCountKeyTextView.setText("ratingCount");
-        ratingCountValueTextView.setText("" + (long) result.getRatingCount());
-        ratingValueKeyTextView.setText("ratingValue");
-        ratingValueValueTextView.setText("" + (long) result.getRatingValue());
+        priceValueTextView.setText(result.getPrice().toString());
+        quantityKeyTextView.setText("quantity");
+        quantityValueTextView.setText("" + (long) result.getQuantity());
         return layout;
     }
 }
