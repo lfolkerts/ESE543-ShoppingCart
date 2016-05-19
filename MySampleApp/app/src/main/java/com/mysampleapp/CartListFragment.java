@@ -40,7 +40,12 @@ public class CartListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         getActivity().setTitle(R.string.cart_title);
+
+        //String received = getIntent().getStringExtra(SingleFragmentActivity.searchedItem);
+        //CartContents.get(getActivity()).getCart();
+
         mShoppingCart = CartContents.get(getActivity()).getCart();
         ShoppingCartAdapter adapter = new ShoppingCartAdapter(mShoppingCart);
         setListAdapter(adapter);

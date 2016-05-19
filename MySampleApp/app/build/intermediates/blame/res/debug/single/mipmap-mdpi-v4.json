@@ -1,10 +1,26 @@
 [
     {
-        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/splash_icon.png",
-        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/src/main/res/mipmap-mdpi/splash_icon.png"
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png",
-        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\splash_icon.png",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\src\\main\\res\\mipmap-mdpi\\splash_icon.png"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\splash_icon.png",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\src\\main\\res\\mipmap-mdpi\\splash_icon.png"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/splash_icon.png",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/src/main/res/mipmap-mdpi/splash_icon.png"
     }
 ]

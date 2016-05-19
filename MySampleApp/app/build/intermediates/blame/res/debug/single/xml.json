@@ -1,6 +1,14 @@
 [
     {
-        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/xml/content_delivery_paths.xml",
-        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/src/main/res/xml/content_delivery_paths.xml"
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/res/merged/debug/xml/content_delivery_paths.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/src/main/res/xml/content_delivery_paths.xml"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\xml\\content_delivery_paths.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\src\\main\\res\\xml\\content_delivery_paths.xml"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\xml\\content_delivery_paths.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\src\\main\\res\\xml\\content_delivery_paths.xml"
     }
 ]

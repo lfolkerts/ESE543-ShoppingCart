@@ -292,7 +292,7 @@
     <string name="cart_complete">Complete</string>
     <string name="cart_finished">Shopping complete</string>
     <string name="cart_market_hint">1 for MOST and 7 for LEAST</string>
-    <string name="cart_market_label">Priority</string>
+    <string name="cart_market_label">Rating</string>
     <string name="cart_quantity_hint">How many would you like?</string>
     <string name="cart_quantity_label">Quantity</string>
     <string name="cart_title">Shopping Cart</string>
@@ -376,7 +376,7 @@
     <string name="identity_demo_textview_userid_description">User\'s unique identifier</string>
     <string name="identity_demo_textview_username_description">User\'s name</string>
     <string name="identity_demo_unknown_identity_text">&lt;UNKNOWN IDENTITY></string>
-    <string name="item_market_title">Priority:</string>
+    <string name="item_market_title">rating:</string>
     <string name="item_quantity_title">Quantity:</string>
     <string name="main_fragment_subtitle_user_files">Store and access files for your users.</string>
     <string name="main_fragment_subtitle_user_identity">Keep track of users</string>

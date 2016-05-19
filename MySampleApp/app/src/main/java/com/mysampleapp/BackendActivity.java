@@ -63,6 +63,7 @@ public class BackendActivity extends AppCompatActivity implements View.OnClickLi
 
     private Button   signOutButton;
     private Button   signInButton;
+    public Button backToList;   //freddy
 
     /**
      * Initializes the Toolbar for use with the activity.
@@ -150,15 +151,19 @@ public class BackendActivity extends AppCompatActivity implements View.OnClickLi
 
         setupNavigationMenu(savedInstanceState);
 
-        Button backToList = (Button) findViewById(R.id.button);
+        backToList = (Button) findViewById(R.id.button);
         backToList.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v)
-        {
-            Intent back = new Intent(getApplicationContext(), CartListActivity.class);
-            startActivity(back);
-        }
+
+
+            public void onClick(View v)
+            {
+                Intent back = new Intent(getApplicationContext(), CartListActivity.class);
+                startActivity(back);
+            }
 
         });
+
+
     }
 
     @Override

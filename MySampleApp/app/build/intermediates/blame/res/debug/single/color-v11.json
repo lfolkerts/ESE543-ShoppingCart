@@ -1,10 +1,26 @@
 [
     {
-        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\Users\\fdurao7\\Documents\\ESE543-ShoppingCart-master\\MySampleApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/C:\\home\\lfolkerts\\AndroidStudioProjects\\ESE543\\sandbox\\S3ampleApp\\MySampleApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     }
 ]

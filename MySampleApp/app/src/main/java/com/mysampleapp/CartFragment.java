@@ -85,7 +85,7 @@ public class CartFragment extends Fragment{
                         } catch (final AmazonClientException ex) {
                             // The insertSampleData call already logs the error, so we only need to
                             // show the error dialog to the user at this point.
-                          return;
+                            return;
                         }
                         ThreadUtils.runOnUiThread(new Runnable() {
                             @Override
@@ -95,7 +95,7 @@ public class CartFragment extends Fragment{
                                 dialogBuilder.setMessage(R.string.nosql_dialog_message_added_sample_data_text);
                                 dialogBuilder.setNegativeButton(R.string.nosql_dialog_ok_text, null);
                                 dialogBuilder.show();
-                                     }
+                            }
                         });
                     }
                 }).start();
@@ -110,7 +110,7 @@ public class CartFragment extends Fragment{
         mViewCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //TODO show cart here
+                //TODO show cart here
                 showMessage("Data", "Items");
             }
         });

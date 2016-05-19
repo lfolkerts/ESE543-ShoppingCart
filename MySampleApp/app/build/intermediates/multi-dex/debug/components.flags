@@ -1,5 +1,5 @@
--injars /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/transforms/jarMerging/debug/jars/1/1f/combined.jar
--outjars /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/multi-dex/debug/componentClasses.jar
+-injars /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/transforms/jarMerging/debug/jars/1/1f/combined.jar
+-outjars /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/multi-dex/debug/componentClasses.jar
 
 -libraryjars /home/lfolkerts/Android/Sdk/build-tools/23.0.1/lib/shrinkedAndroid.jar
 
@@ -9,7 +9,7 @@
 -dontusemixedcaseclassnames
 -dontpreverify
 -dontwarn
--printconfiguration /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S3ampleApp/MySampleApp/app/build/intermediates/multi-dex/debug/components.flags
+-printconfiguration /home/lfolkerts/AndroidStudioProjects/ESE543/sandbox/S6ample/ESE543-ShoppingCart-master/MySampleApp/app/build/intermediates/multi-dex/debug/components.flags
 
 
 -keep class com.mysampleapp.Application {

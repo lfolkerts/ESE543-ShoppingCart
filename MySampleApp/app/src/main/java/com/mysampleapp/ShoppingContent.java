@@ -55,7 +55,7 @@ public class ShoppingContent {
         CartItems Item = new CartItems(
                 String.valueOf(position),
                 "01234567890" + String.valueOf((position * 11) % 900 + 100),
-                "Oreo " + position,
+                "Lindt " + position,
                 rand.nextInt() % (ITEM_MAX_RATING + 1)
         );
         for (int i = 1; i < DUMMY_STORE_COUNT; i++) {

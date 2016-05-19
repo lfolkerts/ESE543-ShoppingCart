@@ -205,13 +205,13 @@
   <string name="action_settings">Settings</string>
   <string name="cart_title">Shopping Cart</string>
   <string name="cart_quantity_label">Quantity</string>
-  <string name="cart_market_label">Priority</string>
+  <string name="cart_market_label">Rating</string>
   <string name="add_cart_item_label">Add Item</string>
   <string name="add_cart_item_hint">Add item to cart</string>
   <string name="cart_quantity_hint">How many would you like?</string>
   <string name="cart_market_hint">1 for MOST and 7 for LEAST</string>
   <string name="item_quantity_title">Quantity:</string>
-  <string name="item_market_title">Priority:</string>
+  <string name="item_market_title">rating:</string>
   <string name="cart_complete">Complete</string>
   <string name="cart_begin">Begin Shopping</string>
   <string name="begin_shopping">Start</string>
